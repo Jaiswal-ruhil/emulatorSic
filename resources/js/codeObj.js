@@ -1,0 +1,34 @@
+
+
+//future use linking or non linking...
+function CodeObjGenrator = function ( type ) {
+    var header = {};
+    var text = [];
+    var end = 0;
+    var codeObj = {};
+}
+
+CodeObjGenerator.prototype.getObject( codeString ) {
+    var records = codeString.split("\n");
+    var count = 0;
+    //assuming the code is correct.
+    for( x in records )
+	rec = x.split('^');
+    if( rec[0] == "H" ){
+	this.header.name = rec[1];
+	this.header.stAdd = rec[2];
+	this.header.len = rec[3];
+    }
+// assuming that the T rec is only the opcode
+    else if( rec[0] == "T" ) {
+	var textRecLen = rec.length();
+        for( i = 0; i < textRecLen; i += 1 ) {
+	    this.text[count] = rec[i];
+	    count += 1;
+	}
+    }
+    else if( rec[0] == "E" ) {
+	end = rec[1];
+    }
+    this.codeObj = { 'H': header, 'T': text, 'E': end };
+}
