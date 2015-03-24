@@ -1,0 +1,106 @@
+<html>
+
+<head>
+    <script src="/resources/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/resources/ace_editor/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+
+	<style>
+	.container{
+	display: flex;
+	flex-direction: row;		
+	-webkit-flex-flow: row wrap;
+  	justify-content: space-around;
+
+	}
+	.contents{
+	background: tomato;
+	padding: 5px;
+  	width: 300px;
+  	margin-top: 10px;
+  
+  	line-height: 150px;
+  	color: white;
+  	font-weight: bold;
+  	font-size: 1.5em;
+  	text-align: center;
+	
+	}
+	h1{
+		color:white;
+		background-color: #ec783b;
+		font-weight: 200;
+		line-height: 2;
+		margin: 0;
+		font-size: 3em;
+		display: block;
+		text-align: center;
+		
+	}
+	</style>
+	<script type="text/javascript" >
+		var i=0,j=0,k=0,ram={'500':20,'1000':38,'1080':398,'1700':38,'1004':38,'9000':38};
+		reg={'501':201,'1001':381,'1081':3981,'1701':381,'1007':387,'9001':389};
+		sym={'503':203,'1003':383,'1083':3983,'1703':383,'1004':38,'9000':38};
+
+		keys=[];
+		
+		//keys=Object.keys(ram);
+		//arr{}=console.log(obj.key());
+		function rams(){
+		//  alert( "Handler for .click() called." );
+		//for (X in obj){
+		keys=Object.keys(ram);
+		if(i<keys.length){
+		$( "#ram" ).append( document.createTextNode(i+" "+ram[keys[i]])).append($("<br>"));
+		i=i+1;
+	        }
+	    }
+	   function registers(){
+		//  alert( "Handler for .click() called." );
+		//for (X in obj){
+		keys=Object.keys(reg);
+		if(j<keys.length){
+		$( "#reg" ).append( document.createTextNode(j+" "+reg[keys[j]])).append($("<br>"));
+		j=j+1;
+	        }
+	   }
+	   function sym_tab(){
+		//  alert( "Handler for .click() called." );
+		//for (X in obj){
+		keys=Object.keys(sym);
+		if(k<keys.length){
+		$( "#sym" ).append( document.createTextNode(k+" "+sym[keys[k]])).append($("<br>"));
+		k=k+1;
+	        }
+	   }
+        function showEditor(){
+            
+        }
+        
+	</script>
+</head>
+<body>
+	<h1>SIC emulator</h1>
+	<div class="container">
+		<div class="contents">INPUT<br>
+		<button onclick="rams()" id="button">RAM</button><br><br>
+		<button onclick="showEditor()" id="button">RAM</button><br><br>
+		<button onclick="registers()" id="button">REGISTERS</button><br><br>
+		<button onclick="sym_tab()" id="button">SYMBOL TABLE</button>	
+		</div>
+		<div class="contents">
+			<div class="content">RAM</div>
+			
+			<p id="ram"></p>
+		</div>
+		<div class="contents">
+			<div class="content">REGISTERS</div>		
+			<p id="reg"></p>
+		</div>
+		<div class="contents">
+			<div class="content">SYMBOL TABLE</div>		
+			<p id="sym"></p>
+		</div>
+	</div>
+</body>
+</html>

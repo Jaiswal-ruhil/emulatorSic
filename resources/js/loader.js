@@ -14,5 +14,6 @@ Loader.prototype.load( codeObj, ram, register ) {
     var phyLoc = codeObj.H.stAdd
     for(var i = 0, i < self.H.len; i += 1 )
         ram.insert( phyLoc + i, codeObj.T['i'] )
+    ram.insert( phyLoc + i, 0 | start )
     register.insert( 'PC', codeObj.H.stAdd )
 }

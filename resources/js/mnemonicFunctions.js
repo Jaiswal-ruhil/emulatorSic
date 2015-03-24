@@ -111,7 +111,7 @@ function mul(memory){
 function or(memory){
 	accumulator=accumulator|memory
   changeAccumulatorRegister(accumulator);
-}	
+}
 
 //STA MNEUMONIC
 function sta(memory){
@@ -135,18 +135,16 @@ function stl(memory){
 function stsw(memory){
   memory=status word
   changeMemory(memory);
-}  
+}
 
 //STX MNEUMONIC
 function stx(memory){
   memory=indexRegister
   changeMemory(memory);
-} 
+}
 
 //SUB MNEUMONIC
 function sub(memory){
   accumulator=accumulator-memory
   changeAccumulatorRegister(accumulator);
-}   
-
-
+}

@@ -12,6 +12,11 @@ PhyMem.prototype.insert( register, value ) {
         this._reg_[ register ] = value;
 }
 
+PhyMem.prototype.increment( register, value ) {
+    if( this.varifyReg( register ) )
+        this._reg_[ register ] += value;
+}
+
 PhyMem.prototype.clearAll() {
     for (x in reg)
         this.reg.x = 0;
