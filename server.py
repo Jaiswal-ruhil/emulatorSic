@@ -8,13 +8,10 @@ import os
 
 class Server():
 
-    '''def __init__(self):
-        Server.notebook_name = notebook'''
     @cherrypy.expose
     def index(self):
         '''
-            Render the index.html File for the Interface for the Client to edit the Zim-Wiki
-            Return the Rendered HTML from the Template Engine
+            Render the index.html File for the Interface for the Client
         '''
 
         return open(os.path.join(os.path.join(os.path.abspath("."), u"resources"), u'index.html'))
