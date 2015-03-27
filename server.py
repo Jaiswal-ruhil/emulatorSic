@@ -8,11 +8,20 @@ import os
 
 class Server():
 
-    def __init__(self, notebook):
-        Server.notebook_name = notebook
+    '''def __init__(self):
+        Server.notebook_name = notebook'''
+    @cherrypy.expose
+    def index(self):
+        '''
+            Render the index.html File for the Interface for the Client to edit the Zim-Wiki
+            Return the Rendered HTML from the Template Engine
+        '''
+
+        return open(os.path.join(os.path.join(os.path.abspath("."), u"resources"), u'index.html'))
+
 
     @cherrypy.expose
-    def generate(self):
+    def generateCode(self):
         received_data = cherrypy.request.body.read()
         try:
             decoded_data = json.loads(received_data)
@@ -22,8 +31,9 @@ class Server():
         except KeyError:
             return json.dumps({"status":2, "message":"Invalid Data Sent to the Server"})
 
-        try:'''integrate kshitij's project'''
-        data_sent = {'code': "H^4f^10" }
+        try:
+            Assembler( recivedData.code )
+            data_sent = {'code': "H^4f^10" }
             return json.dumps(data_sent)
         except KeyError:
             return json.dumps(data)
@@ -33,8 +43,6 @@ class Server():
     Setting up the Server with Specified Configuration
 '''
 if __name__ == '__main__':
-
-    env = Environment(loader=FileSystemLoader('resources'))
     config = ConfigParser.RawConfigParser()
     config.read('server.conf')
     cherrypy.server.socket_host = config.get('server', 'host')
@@ -48,4 +56,4 @@ if __name__ == '__main__':
             'tools.staticdir.dir': './resources'
         }
     }
-cherrypy.quickstart(Server(notebook_name), '/', conf)
+cherrypy.quickstart(Server(), '/', conf)
