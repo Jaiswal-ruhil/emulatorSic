@@ -1,30 +1,30 @@
 
 //this object mimics the ram in a system
 
-function PhyMem = function( size ) {
+var PhyMem = function( size ) {
     this.size = size;
-    var _memory_ = [];
+    this._memory_ = [];
 }
 
-PhyMem.prototype.insert( loc, value ) {
+PhyMem.prototype.insert = function( loc, value ) {
     if( this.varifyLoc( loc ) )
         this._memory_[loc] = value;
 }
 
-PhyMem.prototype.clearAll() {
+PhyMem.prototype.clearAll = function() {
     this._memory_ = [];
 }
 
-PhyMem.prototype.clear( loc ) {
+PhyMem.prototype.clear = function( loc ) {
     if( this.varifyLoc( loc ) )
         this._memory_[loc] = 0;
 }
 
-phyMem.prototype.varifyLoc( loc ) {
+PhyMem.prototype.varifyLoc = function( loc ) {
     if( loc > this.size || loc < 0 )
 	this.errorHandler( "INVALID_PHYSICAL_LOCATION" )
 }
 
-PhyMem.prototype.errorHandler( errMsg ) {
+PhyMem.prototype.errorHandler= function( errMsg ) {
     console.log( errMsg )
 }

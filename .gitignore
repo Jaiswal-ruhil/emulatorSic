@@ -1,5 +1,6 @@
 ace-builds-master.zip
-try.*
+*try*
+*test*
 *dummy*
 ~*
 *~

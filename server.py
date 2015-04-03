@@ -5,6 +5,7 @@ import cherrypy
 import ConfigParser
 import json
 import os
+import Assembler
 
 class Server():
 
@@ -24,16 +25,15 @@ class Server():
             decoded_data = json.loads(received_data)
             code = decoded_data['code']
             filename = decoded_data['filename']
-            machineid = decoded_data['id']
         except KeyError:
             return json.dumps({"status":2, "message":"Invalid Data Sent to the Server"})
 
         try:
-            Assembler( recivedData.code )
-            data_sent = {'code': "H^4f^10" }
-            return json.dumps(data_sent)
+            codeRequest  = Assembler()
+            data_sent = codeRequest.assemble()
         except KeyError:
-            return json.dumps(data)
+            data_sent = {'status': "failed"}
+        return json.dumps(data_sent)
 
 
 '''

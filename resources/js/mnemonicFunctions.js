@@ -1,4 +1,4 @@
-var accumulator, indexRegister, linkage, programCounter, statusWord = [ CC: 0];
+var accumulator = register.A, indexRegister = register.X, linkage.register.L, programCounter = register.PC, statusWord = register.SW;
 
 function changeAccumulatorRegister(accumulator) {
   $("#accumulator").text(accumulator);

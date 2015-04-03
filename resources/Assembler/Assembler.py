@@ -17,14 +17,18 @@ class Assembler:
   filename = None
   assembly_code = None
 
-  def __init__(self, codeString):
+  def __init__(self, filename):
     """
       Constructor initialised, which starts the assembling process
       Source File -> filename
     """
 
-    self.assembly_code = codeString                                    #Read Source File.
-    
+    self.filename = filename
+    fp = open(filename,'r')
+    self.assembly_code = fp.readlines()                                    #Read Source File.
+    fp.close()
+    self.assemble()
+
   def createSymbolTable(self):
     """
       Creates Symbol Table using statically defined optable and source code.
@@ -50,7 +54,7 @@ class Assembler:
           assembly_code = assembly_code[1:]                               #Delete Start instruction.
         except:
           print "Error! Syntax Error at Line:"+str(line)+" no\nPlease enter a valid address"
-        return ({"status":-1})
+          exit(-1)
                                                                           #Creation of Symbol Table
     for line in assembly_code:
       line_no += 1                                                        #Line Count in Source Code.
@@ -87,7 +91,7 @@ class Assembler:
 
       else:                                                               #Should contain only maximum 3 arguments.
         print "Error! Syntax Error at Line No:",line_no,"\n",input_line," is not valid Assembly Code"
-        return ({"status":-1})
+        exit(-1)
 
       try:
         opcode = opcode.upper()
@@ -124,14 +128,14 @@ class Assembler:
 
       except KeyError:                                                    #Opcode is Missing.
         print "Error! Syntax Error at Line:",str(line_no)," no\n",input_line," is not valid Assembly Code"
-        return ({"status":-1})
+        exit(-1)
 
       self.program_length = loc_Ctr
 
     if(errors.__len__()!=0):                                              #Variables Undeclared.
       for error in errors:
         print "Error! Syntax Error Operand "+error+" is Undeclared in the Assembly Code\n"
-        return ({"status":-1})
+      exit(-1)
 
   def assemble(self):
     """
@@ -147,10 +151,6 @@ class Assembler:
     print "Successfully created Symbol Table for the input program : symtable.dat\n"
     self.pass2()                                                          #Map Linear Address with required Opcode from Optable.
     print "Successfully created Object Code for the input program : ObjectFile\n"
-    symTabData = readlines(open('symtab.dat','r'))
-    opFileData = readlines(open('ObjectFile','r'))
-    return {"status": 0, "symTab": symTabData, "opCode": opFileData}
-    
 
   def pass1(self):
     """

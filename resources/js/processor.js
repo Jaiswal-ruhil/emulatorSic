@@ -1,26 +1,30 @@
 
-function Processor = function() {
-    var machine = self;
+var Processor = function() {
     var instObj = {};
     splitInst = function() {
-	var instObj = { 'opcode': 0, 'flag': 0, 'add': 0 };
-	this.instObj['opcode'] = parseInt( self / 0x10000 );
-	this.instObj['flag'] = parseInt( ( self | 0x7f00 ) / 0x7000 );
-	this.instObj['add'] = parseInt( self | 0x7fff )
-    }
+  	}
 }
 
-Processor.prototype.execute() {
-    var start = machine.register.PC;
+Processor.prototype.execute = function() {
+    var start = register.PC;
     instAdd = start;
+    console.log( start, "    ", ram._memory_[instAdd] )
     do{
-	instAdd  =
+      register.PC = perform( ram._memory_[instAdd] )
     }while( instAdd != start )
     var instObj = inst.instObj
     var loc = instObj.add;
     if( instObj.flag == 1 )
-	loc = loc + machine.register.B
+  	loc = loc + register.B
     instSet[instObj.opcode]( loc )
-    machine.register.increment( 'PC', 1 );
+    register.increment( 'PC', 1 );
 }
+
+function perform(  operation ) {
+    var opcode = operation.toString();
+    var xflag = operation.toString();
+    var address = operation.toString();    
+    
+}
+
 

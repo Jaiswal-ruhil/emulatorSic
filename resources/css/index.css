@@ -1,0 +1,56 @@
+
+
+.container{
+    display: flex;
+    flex-direction: row;		
+    -webkit-flex-flow: row wrap;
+    justify-content: space-around;
+
+}
+.contents{
+    background: tomato;
+    padding: 5px;
+    width: 300px;
+    margin-top: 10px;
+    line-height: 150px;
+    color: white;
+    font-weight: bold;
+    font-size: 35px;
+    text-align: center;
+    
+}
+h1{
+    color:white;
+    background-color: #16A085;
+    font-weight: 200;
+    line-height: 2;
+    margin: 0;
+    font-size: 4em;
+    display: block;
+    text-align: center;
+    
+}
+#editor {
+    height: 250px;
+    width: 300px;
+    border: 2px solid black;
+}
+
+.myButton {
+    background: #00A0D1;
+    background: -moz-linear-gradient(top,#00A0D1 0%,#008DB8 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#00A0D1),color-stop(100%,#008DB8));
+    background: -webkit-linear-gradient(top,#00A0D1 0%,#008DB8 100%);
+    background: -o-linear-gradient(top,#00A0D1 0%,#008DB8 100%);
+    background: -ms-linear-gradient(top,#00A0D1 0%,#008DB8 100%);
+    background: linear-gradient(top,#01AEF0 0%,#168CA1 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00A0D1',endColorstr='#008DB8',GradientType=0);
+    padding:7px 15px;
+    color:#fff;
+    font-family:'Helvetica Neue',sans-serif;
+    font-size:19px;
+    border-radius:30px;
+    -moz-border-radius:30px;
+    -webkit-border-radius:30px;
+    border:1.5px solid #095B7E
+}

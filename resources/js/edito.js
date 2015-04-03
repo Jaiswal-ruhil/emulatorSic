@@ -6,36 +6,37 @@ var lables=[];
 var name,mnemonic;
 
 var executeCommand={
-  'ADD' : function() {add(name) },
-  'AND' : function() {and(name) },
-  'COMP': function() {comp(name) },
-  'DIV' : function() {div(name) },
-  'J'   : function() {j(name) },
-  'JEQ' : function() {jeq(name) },
-  'JGT' : function() {jgt(name) },
-  'JLT' : function() {jlt(name) },
-  'JSUB': function() {jsub(name) },
-  'LDA' : function() {lda(name) },
-  'LDCH': function() {ldch(name) },
-  'LDL' : function() {ldl(name) },
-  'LDX' : function() {ldx(name) },
-  'MUL' : function() {mul(name) },
-  'OR'  : function() {or(name) },
-  'RD'  : function() {rd(name) },
-  'RSUB': function() {rsub(),
-  'STA' : function() {sta(name) },
-  'STCH': function() {stch(name) },
+  '0000000' : function() {add(name) },
+  '0000100' : function() {and(name) },
+  '0001000': function() {comp(name) },
+  '0001100' : function() {div(name) },
+  '0010000'   : function() {j(name) },
+  '0010100' : function() {jeq(name) },
+  '0011000' : function() {jgt(name) },
+  '0011100' : function() {jlt(name) },
+  '0100000': function() {jsub(name) },
+  '0100100' : function() {lda(name) },
+  '0101000': function() {ldch(name) },
+  '0101100' : function() {ldl(name) },
+  '0110000' : function() {ldx(name) },
+  '0110100' : function() {mul(name) },
+  '1001000'  : function() {or(name) },
+  '1000000'  : function() {rd(name) },
+  '1000100': function() {rsub()},
+  '0111100' : function() {sta(name) },
+/*  '': function() {stch(name) },
   'STL' : function() {stl(name) },
   'STSW': function() {stsw(name) },
   'STX' : function() {stx(name) },
   'SUB' : function() {sub(name) },
   'TD'  : function() {td(name) },
   'TIX' : function() {tix(name) },
-  'WD'  : function() {wd(name)
+  'WD'  : function() {wd(name)}*/
 };
 
 
 var dummydata="LDA number";
+
 function main(data){
   var temp = data.split(" ");
   if(temp.length===3){
@@ -50,5 +51,4 @@ function main(data){
    executeCommand[mnemonic].call();
 }
 
-main(dummydata);
-});
+

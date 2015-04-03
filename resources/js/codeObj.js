@@ -1,14 +1,14 @@
 
 
 //future use linking or non linking...
-function CodeObjGenrator = function ( type ) {
-    var header = {};
-    var text = [];
-    var end = 0;
-    var codeObj = {};
+var CodeObjGenerator = function(self){
+    this.header = {};
+    this.text = [];
+    this.end = 0;
+    this.codeObj = {};
 }
 
-CodeObjGenerator.prototype.getObject( codeString ) {
+CodeObjGenerator.prototype.getObject = function( codeString ) {
     var records = codeString.split("\n");
     var count = 0;
     //assuming the code is correct.
@@ -30,5 +30,5 @@ CodeObjGenerator.prototype.getObject( codeString ) {
     else if( rec[0] == "E" ) {
 	end = rec[1];
     }
-    this.codeObj = { 'H': header, 'T': text, 'E': end };
+    this.codeObj = { 'H': this.header, 'T': this.text, 'E': this.end };
 }
