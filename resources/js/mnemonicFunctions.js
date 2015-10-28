@@ -1,10 +1,10 @@
-var accumulator = register.A, indexRegister = register.X, linkage.register.L, programCounter = register.PC, statusWord = register.SW;
+var accumulator = register.A, indexRegister = register.X, linkage=register.L, programCounter = register.PC, statusWord = register.SW;
 
 function changeAccumulatorRegister(accumulator) {
   $("#accumulator").text(accumulator);
 };
 function changeStatusWord(statusWord) {
-  $("#ststusWord").text(statusWord);
+  $("#statusWord").text(statusWord);
 };
 function changeLinkage(linkage) {
   $("#linkage").text(linkage);
@@ -18,7 +18,7 @@ function changeIndexRegister(indexRegister) {
 
 //checks if there occues an over flow in t the 24 bit register
 function checkOverflow(value) {
-  return value | 335544321
+  return value | 335544321;
 }
 
 
@@ -133,7 +133,7 @@ function stl(memory){
 
 //STSW MNEUMONICS
 function stsw(memory){
-  memory=status word
+  memory=statusWord
   changeMemory(memory);
 }
 
