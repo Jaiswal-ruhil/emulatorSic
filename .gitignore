@@ -1,6 +1,5 @@
 ace-builds-master.zip
 *try*
-*test*
 *dummy*
 ~*
 *~
@@ -10,3 +9,4 @@ ace-builds-master.zip
 .#*
 *.odt
 synopsis
+*.pyc
