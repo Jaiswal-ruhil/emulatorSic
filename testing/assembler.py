@@ -18,4 +18,5 @@ if __name__ == '__main__':
     test_code.append(line)
   asm_file.close()
   print test_code
-  Assembler.assemble(test_code)
+  object_code = asm_assembler.assemble(test_code)
+  print object_code
