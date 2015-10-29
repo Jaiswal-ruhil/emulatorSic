@@ -153,7 +153,7 @@ class Assembler:
     self.pass1()                                                          #Create Symbol Table and Validate Source Code.
     print "Successfully created Symbol Table for the input program : symtable.dat\n"
     self.object_code = self.pass2()                                       #Map Linear Address with required Opcode from Optable.
-    print "Successfully created Object Code for the input program : ObjectFile\n\n\n"
+    print "Successfully created Object Code for the input code\n\n"
     return self.object_code
 
   def pass1(self):
