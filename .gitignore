@@ -10,3 +10,4 @@ ace-builds-master.zip
 *.odt
 synopsis
 *.pyc
+Assembler/symtable.dat
